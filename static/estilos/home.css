@@ -1,0 +1,377 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+    min-height: 80dvh;
+}
+
+h2, h3 {
+    color: var(--azulEscuro);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+:root {
+    --azulEscuro: #1B3A57;
+    --verdeMenta: #9BF6FF;
+    --amareloMostarda: #FFD60A;
+    --cinzaMédio: #6C757D;
+    --brancoGelo: #F8F9FA;
+}
+
+/* CABECALHO */
+
+.cabecalho-container {
+    width: 100vw;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 70px;
+    box-shadow: 0px 2px 2px #00000018;
+    position: fixed;
+    top: 0;
+}
+
+.logo {
+    max-height: 69px;
+}
+
+.cabecalho-btns {
+    width: 300px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.lnk-planos, .lnk-login {
+    text-decoration: none;
+    color: var(--cinzaMédio);
+    font-weight: 600;
+    padding: 5px;
+}
+
+.lnk-regis {
+    text-decoration: none;
+    background-color: var(--verdeMenta);
+    color: var(--azulEscuro);
+    padding: 5px 10px;
+    font-weight: 600;
+    border-radius: 15px;
+}
+
+.lnk-planos:hover, .lnk-login:hover {
+    transform: scale(1.05);
+    color: var(--azulEscuro);
+}
+
+.lnk-regis:hover {
+    transform: scale(1.05);
+}
+
+/* /CABECALHO */
+
+
+/* APRESENTACAO */
+
+.apresentacao {
+    background-color: var(--brancoGelo);
+}
+
+.apresentacao-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.apresentacao-infos {
+    max-width: 500px;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.links {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.lnk-login1 {
+    text-decoration: none;
+    color: var(--cinzaMédio);
+    font-weight: 600;
+    padding: 5px;
+}
+
+.lnk-regis1 {
+    text-decoration: none;
+    background-color: var(--verdeMenta);
+    color: var(--azulEscuro);
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 15px;
+}
+
+.lnk-regis1:hover, .lnk-login1:hover {
+    transform: scale(1.05);
+    color: var(--azulEscuro);
+}
+
+/* /APRESENTACAO */
+
+
+/* TUTORIAL */
+
+.tutorial {
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #00000035 inset;
+}
+
+.tutorial-container {
+    min-height: 80dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 30px;
+    gap: 80px;
+}
+
+.passos-titulo {
+    text-align: center;
+}
+
+.passos-titulo > h2 {
+    margin-bottom: 20px;
+}
+
+.passos-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.passo {
+    background-color: var(--brancoGelo);
+    width: 250px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px #00000035;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px;
+}
+
+.passo-n {
+    background-color: var(--verdeMenta);
+    color: var(--azulEscuro);
+    border-radius: 30px;
+    padding: 10px;
+    width: 40px;
+    box-shadow: 0px 0px 5px #00000018;
+    font-weight: 700;
+}
+
+.passo-n > p {
+    text-align: center;
+}
+
+.passo > p {
+    color: var(--azulEscuro);
+    border-radius: 5px;
+    padding: 20px;
+    font-weight: 500;
+}
+
+/* /TUTORIAL */
+
+
+/* SOBRE */
+
+.sobre {
+    background-color: var(--brancoGelo);
+}
+
+.sobre-container {
+    min-height: 80dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 30px;
+    gap: 80px;
+}
+
+.sobre-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sobre-content > p {
+    width: 600px;
+    font-size: 1.2em;
+}
+
+/* /SOBRE */
+
+
+/* PLANOS */
+
+.planos {
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #00000035 inset;
+}
+
+.planos-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 80dvh;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.plano-titulo {
+    text-align: center;
+}
+
+.tipos-planos {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+}
+
+.plano {
+    width: 300px;
+    background-color: var(--brancoGelo);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #00000035;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.plano > h3 {
+    font-size: 1.4em;
+    font-weight: 700;
+    text-align: center;
+}
+
+.preco-antigo {
+    font-size: .8em;
+    color: var(--cinzaMédio);
+    text-decoration: line-through;
+}
+
+.preco-novo {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #34de37;
+    text-decoration: underline;
+}
+
+.plano-beneficio {
+    list-style-position: inside;
+    list-style-type: none;
+}
+
+.b-disponivel, .b-indisponivel {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.b-disponivel {
+    color: #5bdd37;
+}
+
+.b-indisponivel {
+    color: #dd3737;
+}
+
+.ass-plano {
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-top: 10px;
+    color: var(--azulEscuro);
+    background-color: var(--amareloMostarda);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #00000018;
+}
+
+.ass-plano:hover {
+    transform: scale(1.01);
+}
+
+/* /PLANOS */
+
+/* FOOTER */
+
+footer {
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 0px 0px 5px #00000018;
+}
+
+.footer-container {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content, .lnk-uteis {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.lnk-uteis > a {
+    text-decoration: none;
+    color: var(--cinzaMédio);
+    font-weight: 600;
+    padding: 5px;
+    text-align: center;
+}
+
+.lnk-uteis > a:hover {
+    transform: scale(1.01);
+    color: var(--azulEscuro);
+}
+
+.logo2-container > img {
+    width: 200px;
+}
+
+.creditos {
+    font-size: .8em;
+    color: var(--azulEscuro);
+}
+
+
+/* /FOOTER */
