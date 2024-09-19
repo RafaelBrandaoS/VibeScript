@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='estilos/regisLog.css') }}">
-    <title>VibeScript - login</title>
+    <title>VibeScript - registrar</title>
 </head>
 <body>
     <main>
@@ -13,10 +13,10 @@
             <div class="form-content">
                 <div class="img-container">
                     <img src="{{ url_for('static', filename='imagens/personagens/personagem2.png') }}" alt="">
-                    <h3>Bem vindo de volta!</h3>
+                    <h3>Bem vindo!</h3>
                 </div>
                 <div class="form">
-                    <h3>Login</h3>
+                    <h3>Registrar-se</h3>
                     <form action="">
                         <label for="email">e-mail</label>
                         <input type="email" name="email" placeholder="e-mail">
@@ -24,7 +24,7 @@
                         <input type="password" name="senha" placeholder="Senha">
                         <input class="btn-submit" type="submit" value="Login">
                     </form>
-                    <p class="lnk-registrar">não tem uma conta? <a href="{{ url_for('registrar.formulario') }}">registrar-se</a></p>
+                    <p class="lnk-registrar">já tem uma conta? <a href="{{ url_for('login.formulario') }}">logar</a></p>
                 </div>
             </div>
         </div>

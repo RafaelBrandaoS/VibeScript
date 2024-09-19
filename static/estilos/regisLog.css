@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --azulEscuro: #1B3A57;
+    --verdeMenta: #9BF6FF;
+    --amareloMostarda: #FFD60A;
+    --cinzaMédio: #6C757D;
+    --brancoGelo: #F8F9FA;
+}
+
+main {
+    background-color: var(--brancoGelo);
+    height: 100dvh;
+    width: 100dvw;
+    padding-top: 20dvh;
+}
+
+.form-container {
+    background-color: var(--verdeMenta);
+    max-width: 650px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0px 0px 5px #00000038;
+    border-radius: 5px;
+}
+
+.fexar {
+    position: absolute;
+    font-size: 1.3em;
+    font-weight: bold;
+    right: 10px;
+    top: 5px;
+    color: var(--azulEscuro);
+    cursor: pointer;
+    color: var(--azulEscuro);
+}
+
+.fexar:hover {
+    transform: scale(1.01);
+}
+
+.form-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.img-container {
+    padding: 20px;
+    max-width: 280px;
+}
+
+.img-container > img {
+    filter: drop-shadow(0px 0px 3px #00000028);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 0px 5px 5px 0px;
+    box-shadow: -1px 0px 3px #00000028;
+    width: 100%;
+    max-width: 370px;
+}
+
+.form > h3, .img-container > h3 {
+    color: var(--azulEscuro);
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.form > form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.form > form > label {
+    font-size: 1em;
+    color: var(--azulEscuro);
+}
+
+.form > form > input {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 2px #00000098;
+}
+
+.btn-submit {
+    background-color: var(--verdeMenta);
+    color: var(--azulEscuro);
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    transform: scale(1.02);
+}
+
+.lnk-registrar {
+    font-size: 0.8em;
+    color: var(--azulEscuro);
+    text-align: left;
+}
