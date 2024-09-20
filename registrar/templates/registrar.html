@@ -11,20 +11,26 @@
         <div class="form-container">
             <a href="{{ url_for('home') }}"><span class="fexar">x</span></a>
             <div class="form-content">
-                <div class="img-container">
-                    <img src="{{ url_for('static', filename='imagens/personagens/personagem2.png') }}" alt="">
-                    <h3>Bem vindo!</h3>
-                </div>
                 <div class="form">
                     <h3>Registrar-se</h3>
                     <form action="">
+                        <label for="nome">nome</label>
+                        <input type="text" name="nome" placeholder="seu nome">
                         <label for="email">e-mail</label>
-                        <input type="email" name="email" placeholder="e-mail">
+                        <input type="email" name="email" placeholder="seu e-mail">
+                        <label for="telefone">telefone</label>
+                        <input type="number" name="email" placeholder="seu telefone">
                         <label for="senha">senha</label>
-                        <input type="password" name="senha" placeholder="Senha">
-                        <input class="btn-submit" type="submit" value="Login">
+                        <input type="password" name="senha" placeholder="sua senha">
+                        <label for="confirm-senha">confirmar senha</label>
+                        <input type="password" name="confirm-senha" placeholder="confirme sua senha">
+                        <input class="btn-submit" type="submit" value="Registrar-se">
                     </form>
                     <p class="lnk-registrar">já tem uma conta? <a href="{{ url_for('login.formulario') }}">logar</a></p>
+                </div>
+                <div class="img-container">
+                    <img src="{{ url_for('static', filename='imagens/personagens/personagem2.png') }}" alt="">
+                    <h3>Bem vindo!</h3>
                 </div>
             </div>
         </div>

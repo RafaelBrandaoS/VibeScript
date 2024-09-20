@@ -18,15 +18,22 @@ main {
     height: 100dvh;
     width: 100dvw;
     padding-top: 20dvh;
+    position: relative;
 }
 
 .form-container {
     background-color: var(--verdeMenta);
-    max-width: 650px;
+    width: 650px;
+    max-width: 90dvw;
+    max-height: 90dvh;
     margin: 0 auto;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     box-shadow: 0px 0px 5px #00000038;
     border-radius: 5px;
+    /* overflow-y: scroll; */
 }
 
 .fexar {
@@ -53,6 +60,7 @@ main {
 .img-container {
     padding: 20px;
     max-width: 280px;
+    margin: 0 auto;
 }
 
 .img-container > img {
@@ -67,7 +75,7 @@ main {
     gap: 30px;
     background-color: #fff;
     padding: 25px;
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 5px;
     box-shadow: -1px 0px 3px #00000028;
     width: 100%;
     max-width: 370px;
