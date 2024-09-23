@@ -11,7 +11,7 @@ DB_PORT = os.getenv('DB_PORT')
 DB_DATABASE = os.getenv('DB_DATABASE')
 
 def criar_conexao():
-    return connect(host=HOST, password=PASSWORD, user=USER, port=PORT, database=DATABASE)
+    return connect(host=DB_HOST, password=DB_PASSWORD, user=DB_USER, port=DB_PORT, database=DB_DATABASE)
 
 def fexar_conexao(con):
     return con.close()
