@@ -42,6 +42,8 @@ main {
     font-weight: bold;
     right: 10px;
     top: 5px;
+    padding: 10px;
+    z-index: 100;
     color: var(--azulEscuro);
     cursor: pointer;
     color: var(--azulEscuro);

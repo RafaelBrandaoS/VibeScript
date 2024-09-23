@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/estilos/home.css">
+    <link rel="stylesheet" href="../static/estilos/plataforma.css" >
+    <title>VibeScript - plataforma</title>
+</head>
+<body>
+    <header>
+        <div class="cabecalho-container">
+            <div class="logo-container">
+                <a href="#">
+                    <img class="logo" src="{{ url_for('static', filename='imagens/logos/logo1.png') }}" alt="Logo">
+                </a>
+            </div>
+            <div class="cabecalho-btns">
+                <a class="lnk-planos" href="{{ url_for('home') }}">Home</a>
+                <a class="lnk-login" href="{{ url_for('login.logout') }}">Voltar</a>
+                <a class="lnk-regis" href="{{ url_for('plataforma.planos') }}">Atualizar Plano</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            
+        </section>
+    </main>
+</body>
+</html>

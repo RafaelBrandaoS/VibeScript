@@ -1,11 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/estilos/home.css">
+    <link rel="stylesheet" href="../static/estilos/plataforma.css" >
     <title>VibeScript - plataforma</title>
 </head>
 <body>
-    <h1>Olá "nome", bem vindo ao VibeScript</h1>
+    <header>
+        <div class="cabecalho-container">
+            <div class="logo-container">
+                <a href="#">
+                    <img class="logo" src="{{ url_for('static', filename='imagens/logos/logo1.png') }}" alt="Logo">
+                </a>
+            </div>
+            <div class="cabecalho-btns">
+                <a class="lnk-planos" href="{{ url_for('home') }}">Home</a>
+                <a class="lnk-login" href="{{ url_for('login.logout') }}">Sair</a>
+                <a class="lnk-regis" href="{{ url_for('plataforma.planos') }}">Atualizar Plano</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="plataforma-container">
+            <div class="personagens">
+                <h2 class="dica">Selecione ou crie seu personagem</h2>
+                <div>
+                    <img src="../../static/imagens/personagens/personagem1.png" alt="personagem">
+                    <h3>Godofredo</h3>
+                </div>
+                <div>
+                    <img src="../../static/imagens/personagens/personagem2.png" alt="personagem">
+                    <h3>Jorge</h3>
+                </div>
+                <div>
+                    <img src="../../static/imagens/personagens/personagem1.png" alt="personagem">
+                    <h3>Ratiel</h3>
+                </div>
+                <div>
+                    <img src="../../static/imagens/personagens/personagem2.png" alt="personagem">
+                    <h3>Marcone</h3>
+                </div>
+                <div>
+                    <img src="../../static/imagens/personagens/personagem1.png" alt="personagem">
+                    <h3>Josefino</h3>
+                </div>
+                <div>
+                    <img src="../../static/imagens/personagens/personagem2.png" alt="personagem">
+                    <h3>Armenio</h3>
+                </div>
+            </div>
+            <div class="explicacao">
+                <h2>Tenha acesso a personagens exclusivos na nossa loja</h2>
+                <p>compre personagens pré definidos ou personagens em branco para personalizar da maneira que preferir.</p>
+                <a class="lnk-regis1" href="#">ACESSAR LOJA</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="logo2-container">
+                <img  src="{{ url_for('static', filename='imagens/logos/logo2.png') }}" alt="logo">
+            </div>
+            <div class="footer-content">
+                <h4>Contato:</h4>
+                <p>vibescript@gmail.com</p>
+                <p>(61) 9 91234-5678</p>
+            </div>
+            <div class="lnk-uteis">
+                <a href="#">Atualizar Plano</a>
+                <a href="#">Home</a>
+                <a href="#">Sair</a>
+            </div>
+        </div>
+        <p class="creditos">desenvolvido por <a href="#">Rafael Brandão</a></p>
+    </footer>
 </body>
 </html>

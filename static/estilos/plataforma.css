@@ -1,0 +1,40 @@
+.plataforma-container {
+    padding: 100px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.personagens {
+    max-width: 45dvw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 5px;
+    text-align: center;
+}
+
+.personagens > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.personagens > div > img {
+    width: 150px;
+}
+
+.dica {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.explicacao {
+    padding-left: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+    align-items: center;
+}

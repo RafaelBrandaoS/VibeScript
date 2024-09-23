@@ -17,7 +17,7 @@
                 </div>
                 <div class="form">
                     <h3>Login</h3>
-                    <form action="">
+                    <form action="{{ url_for('login.loginValidar') }}" method="post">
                         <label for="email">e-mail</label>
                         <input type="email" name="email" placeholder="e-mail">
                         <label for="senha">senha</label>
