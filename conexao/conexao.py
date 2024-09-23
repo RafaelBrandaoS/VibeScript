@@ -4,11 +4,11 @@ import os
 
 
 load_dotenv()
-USER = os.getenv('USER')
-PASSWORD = os.getenv('PASSWORD')
-HOST = os.getenv('HOST')
-PORT = os.getenv('PORT')
-DATABASE = os.getenv('DATABASE')
+DB_USER = os.getenv('DB_USER')
+DB_PASSWORD = os.getenv('DB_PASSWORD')
+DB_HOST = os.getenv('DB_HOST')
+DB_PORT = os.getenv('DB_PORT')
+DB_DATABASE = os.getenv('DB_DATABASE')
 
 def criar_conexao():
     return connect(host=HOST, password=PASSWORD, user=USER, port=PORT, database=DATABASE)
