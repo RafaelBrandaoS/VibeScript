@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
-from flask_login import UserMixin, login_manager
+# from flask_login import UserMixin, login_manager
 from conexao.conexao import criar_conexao, fexar_conexao
 
 login_bp = Blueprint('login', __name__, template_folder='templates')

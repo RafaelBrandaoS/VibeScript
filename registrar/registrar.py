@@ -26,13 +26,12 @@ def regis_validar():
             cursor.close()
             fexar_conexao(con)
             
-            print('Sucesso!.')
             return redirect(url_for('plataforma.plataforma'))
         except:
-            print('Erro! erro ao criar a conta.')
+            flash('Erro! erro ao criar a conta.')
             return redirect(url_for('registrar.formulario'))
         
     else:
-        print('Erro! as senhas devem ser iguais.')
+        flash('Erro! as senhas devem ser iguais.')
         return redirect(url_for('registrar.formulario'))
     
