@@ -52,7 +52,7 @@ class Usuario:
             Usuario.logado = False
     
     def logout(self):
-        Usuario.logado == False
+        Usuario.logado = False
         self.username = ''
 
 usuario = Usuario()
