@@ -24,6 +24,10 @@
                         <input type="password" name="senha" placeholder="sua senha">
                         <label for="confirm-senha">confirmar senha</label>
                         <input type="password" name="confirm-senha" placeholder="confirme sua senha">
+                        {% set mensagem = get_flashed_messages() %}
+                        {% if mensagem %}
+                            <p class="erro">{{ mensagem[0] }}</p>
+                        {% endif %}
                         <input class="btn-submit" type="submit" value="Registrar-se">
                     </form>
                     <p class="lnk-registrar">já tem uma conta? <a href="{{ url_for('login.formulario') }}">logar</a></p>

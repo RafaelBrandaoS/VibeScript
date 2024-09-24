@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from conexao.conexao import criar_conexao, fexar_conexao
+# from conexao.conexao import criar_conexao, fexar_conexao
+from usuario.usuario import usuario
 
 registrar_bp = Blueprint('registrar', __name__, template_folder='templates')
 
@@ -15,23 +16,11 @@ def regis_validar():
     senha = request.form.get('senha')
     confirm_senha = request.form.get('confirm-senha')
     
-    if senha == confirm_senha:
-        try:
-            con = criar_conexao()
-            cursor = con.cursor()
-            sql = "insert into usuarios(nome, email, telefone, senha) values (%s, %s, %s, %s);"
-            values =(nome, email, telefone, senha)
-            cursor.execute(sql, values)
-            con.commit()
-            cursor.close()
-            fexar_conexao(con)
-            
-            return redirect(url_for('plataforma.plataforma'))
-        except:
-            flash('Erro! erro ao criar a conta.')
-            return redirect(url_for('registrar.formulario'))
-        
+    usuario.registrar(nome, email, telefone, senha, confirm_senha)
+    
+    if usuario.logado:
+        return redirect(url_for('plataforma.plataformaHome'))
     else:
-        flash('Erro! as senhas devem ser iguais.')
-        return redirect(url_for('registrar.formulario'))
+        flash('ERRO! dados inválidos.')
+        return redirect('registrar.formulario')
     
