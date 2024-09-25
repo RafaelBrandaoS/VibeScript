@@ -22,5 +22,5 @@ def regis_validar():
         return redirect(url_for('plataforma.plataformaHome'))
     else:
         flash('ERRO! dados inválidos.')
-        return redirect('registrar.formulario')
+        return redirect(url_for('registrar.formulario'))
     

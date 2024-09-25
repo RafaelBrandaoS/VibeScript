@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/estilos/home.css">
-    <link rel="stylesheet" href="../static/estilos/plataforma.css" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('plataforma.static', filename='estilos/plataforma.css') }}" >
     <title>VibeScript - plataforma</title>
 </head>
 <body>
@@ -26,30 +26,45 @@
         <section class="plataforma-container">
             <div class="personagens">
                 <h2 class="dica">Selecione ou crie seu personagem</h2>
-                <div>
-                    <img src="../../static/imagens/personagens/personagem1.png" alt="personagem">
-                    <h3>Godofredo</h3>
+                <p style="display: none;">{{ personagens[0] }}</p>
+                <p style="display: none;">{{ personagens[1] }}</p>
+                {% for i in range(personagens[0] | length) %}
+                <div class="personagem">
+                    <img src="{{ url_for('plataforma.static', filename=personagens[1][i]['caminho_imagem']) }}" alt="personagem">
+                    <h3>{{ personagens[0][i]['nome_personagem'] }}</h3>
+                    <p class="id-personagem" style="display: none;">{{ personagens[0][i]['id'] }}</p>
                 </div>
-                <div>
-                    <img src="../../static/imagens/personagens/personagem2.png" alt="personagem">
+                {% endfor %}
+                <!-- <div class="personagem">
+                    <img src="{{ url_for('plataforma.static', filename='imagens/personagens/p01.png') }}" alt="personagem">
+                    <h3>Nome</h3>
+                    <p class="id-personagem" style="display: none;">1</p>
+                </div>
+                <div class="personagem">
+                    <img src="{{ url_for('plataforma.static', filename='imagens/personagens/p02.png') }}" alt="personagem">
                     <h3>Jorge</h3>
+                    <p class="id-personagem" style="display: none;">2</p>
                 </div>
-                <div>
-                    <img src="../../static/imagens/personagens/personagem1.png" alt="personagem">
+                <div class="personagem">
+                    <img src="{{ url_for('plataforma.static', filename='imagens/personagens/p03.png') }}" alt="personagem">
                     <h3>Ratiel</h3>
+                    <p class="id-personagem" style="display: none;">3</p>
                 </div>
-                <div>
-                    <img src="../../static/imagens/personagens/personagem2.png" alt="personagem">
+                <div class="personagem">
+                    <img src="{{ url_for('plataforma.static', filename='imagens/personagens/pInicial.png') }}" alt="personagem">
                     <h3>Marcone</h3>
+                    <p class="id-personagem" style="display: none;">4</p>
                 </div>
-                <div>
-                    <img src="../../static/imagens/personagens/personagem1.png" alt="personagem">
+                <div class="personagem">
+                    <img src="{{ url_for('plataforma.static', filename='imagens/personagens/pInicial.png') }}" alt="personagem">
                     <h3>Josefino</h3>
+                    <p class="id-personagem" style="display: none;">5</p>
                 </div>
-                <div>
-                    <img src="../../static/imagens/personagens/personagem2.png" alt="personagem">
+                <div class="personagem">
+                    <img src="{{ url_for('plataforma.static', filename='imagens/personagens/pInicial.png') }}" alt="personagem">
                     <h3>Armenio</h3>
-                </div>
+                    <p class="id-personagem" style="display: none;">6</p>
+                </div> -->
             </div>
             <div class="explicacao">
                 <h2>Olá {{ nome }}, pronto para gerar seus roteiros com o VibeScript?</h2>
@@ -76,5 +91,6 @@
         </div>
         <p class="creditos">desenvolvido por <a href="#">Rafael Brandão</a></p>
     </footer>
+    <script src="{{ url_for('plataforma.static', filename='js/plataforma.js') }}"></script>
 </body>
 </html>

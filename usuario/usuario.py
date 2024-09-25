@@ -5,6 +5,7 @@ from conexao.conexao import criar_conexao, fexar_conexao
 class Usuario:
     logado = False
     username = ''
+    id_usuario = ''
     
     def registrar(self, nome, email, telefone, senha, confirm_senha):
         if senha == confirm_senha:
@@ -17,6 +18,24 @@ class Usuario:
                 con.commit()
                 cursor.close()
                 fexar_conexao(con)
+                
+                con1 = criar_conexao()
+                cursor1 = con1.cursor()
+                sql1 = f"select id from usuarios where email = '{email}';"
+                cursor1.execute(sql1)
+                id_usuario = cursor1.fetchall()
+                cursor1.close()
+                fexar_conexao(con1)
+                
+                con2 = criar_conexao()
+                cursor2 = con2.cursor()
+                sql2 = f"insert into relacaoUsuarioPersonagem (id_usuario, id_personagem, nome_personagem, caracteristicas_personagem) values ('{id_usuario[0][0]}', '10', 'Criar', ''),  ('{id_usuario[0][0]}', '10', 'Criar', ''),  ('{id_usuario[0][0]}', '10', 'Criar', '');"
+                cursor2.execute(sql2)
+                con2.commit()
+                cursor2.close()
+                fexar_conexao(con2)
+                print(id_usuario)
+                
                 
                 Usuario.logado = True
                 
@@ -37,7 +56,7 @@ class Usuario:
         try:
             con = criar_conexao()
             cursor = con.cursor()
-            sql = f"select nome, senha from usuarios where email = '{email}';"
+            sql = f"select nome, senha, id from usuarios where email = '{email}';"
             cursor.execute(sql)
             dados = cursor.fetchall()
             print(dados)
@@ -46,6 +65,8 @@ class Usuario:
             if senha == dados[0][1]:
                 Usuario.logado = True
                 self.username = dados[0][0]
+                self.id_usuario = dados[0][2]
+                print(self.id_usuario)
             else:
                 Usuario.logado = False
         except:
