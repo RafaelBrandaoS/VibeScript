@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('plataforma.static', filename='estilos/criacao.css') }}">
+    <title>Criando o Personagem</title>
+</head>
+<body>
+    <header>
+        <div class="cabecalho-container">
+            <div class="logo-container">
+                <a href="#">
+                    <img class="logo" src="{{ url_for('static', filename='imagens/logos/logo1.png') }}" alt="Logo">
+                </a>
+            </div>
+            <div class="cabecalho-btns">
+                <a class="lnk-planos" href="{{ url_for('plataforma.plataformaHome') }}">Cancelar</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="criacao-container">
+            <h2>Personalize o Seu Personagem</h2>
+            <form action="#" method="post">
+                <label for="nome">Nome: <input name="nome" type="text"></label>
+                <label for="idade">Idade: <input name="idade" type="number"></label>
+                <label for="sexo">sexo: <input name="sexo" type="text"></label>
+                <label for="profissao">Profissão: <input name="profissao" type="text"></label>
+                <label for="musical">Estilo Musical: <input name="musical" type="text"></label>
+                <label for="extrovercao">Extroverção de 1 a 10: <input name="extrovercao" type="text"></label>
+                <label for="hobbie">Hobbie: <input name="hobbie" type="text"></label>
+                <label for="habilidades">Habilidades: <input name="habilidades" type="text"></label>
+                <label for="estilo">Estilo: <input name="estilo" type="text"></label>
+                <label for="perspectiva">Perspectiva de Mundo: <input name="perspectiva" type="text"></label>
+                <div class="btns">
+                    <a class="lnk-planos" href="#">Cancelar</a>
+                    <input class="btn-submit" type="submit" value="Salvar">
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

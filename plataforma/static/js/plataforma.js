@@ -12,6 +12,6 @@ function eventos() {
 
 function escolha_personagem(id_personagem) {
     console.log(id_personagem)
-    window.location.href = `/plataforma/chat/${id_personagem}`
+    window.location.href = `/plataforma/personagem/${id_personagem}`
 }
 

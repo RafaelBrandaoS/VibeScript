@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('plataforma.static', filename='estilos/criacao.css') }}">
+    <title>Criando o Personagem</title>
+</head>
+<body>
+    <header>
+        <div class="cabecalho-container">
+            <div class="logo-container">
+                <a href="#">
+                    <img class="logo" src="{{ url_for('static', filename='imagens/logos/logo1.png') }}" alt="Logo">
+                </a>
+            </div>
+            <div class="cabecalho-btns">
+                <a class="lnk-planos" href="{{ url_for('plataforma.plataformaHome') }}">Cancelar</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="skins-container">
+            <h2>Escolha a Aparência do Seu Personagem</h2>
+            <div class="skin-content">
+                {% for skin in lst_skins %}
+                {% if skin[0] != 10 %}
+                    <div class="skin-container">
+                        <img src="{{ url_for('plataforma.static', filename=skin[2]) }}" alt="img_personagem">
+                        <p>{{skin[1]}}</p>
+                        <p style="display: none;" class="id-skin">{{ skin[0] }}</p>
+                    </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', eventos)
+
+        function eventos() {
+            let skins = document.getElementsByClassName('skin-container')
+            for (let i = 0; i < skins.length; i++) {
+                skins[i].addEventListener('click', () => {
+                    let cont = event.currentTarget
+                    skin_id = cont.getElementsByClassName('id-skin')[0].innerText
+                    console.log(skin_id)
+                    fetch(`/plataforma/personagem/aparencia`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(skin_id)
+                    })
+                        .then(response => {
+                            if(response.ok) {
+                                window.location.href = '/plataforma';
+                            }
+                        })
+                        .catch(error => console.error('Error:', error))
+                        .finally(
+                            
+                        )
+                }) 
+            }
+        }
+    </script>
+</body>
+</html>

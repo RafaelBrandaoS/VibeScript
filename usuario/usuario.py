@@ -23,19 +23,19 @@ class Usuario:
                 cursor1 = con1.cursor()
                 sql1 = f"select id from usuarios where email = '{email}';"
                 cursor1.execute(sql1)
-                id_usuario = cursor1.fetchall()
+                self.id_usuario = cursor1.fetchall()[0][0]
                 cursor1.close()
                 fexar_conexao(con1)
                 
+                print(self.id_usuario)
+                
                 con2 = criar_conexao()
                 cursor2 = con2.cursor()
-                sql2 = f"insert into relacaoUsuarioPersonagem (id_usuario, id_personagem, nome_personagem, caracteristicas_personagem) values ('{id_usuario[0][0]}', '10', 'Criar', ''),  ('{id_usuario[0][0]}', '10', 'Criar', ''),  ('{id_usuario[0][0]}', '10', 'Criar', '');"
+                sql2 = f"insert into relacaoUsuarioPersonagem (id_usuario, id_personagem, nome_personagem, caracteristicas_personagem) values ('{self.id_usuario}', '10', 'Criar', ''),  ('{self.id_usuario}', '10', 'Criar', ''),  ('{self.id_usuario}', '10', 'Criar', '');"
                 cursor2.execute(sql2)
                 con2.commit()
                 cursor2.close()
                 fexar_conexao(con2)
-                print(id_usuario)
-                
                 
                 Usuario.logado = True
                 
