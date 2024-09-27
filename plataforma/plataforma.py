@@ -47,7 +47,7 @@ def personagem(id_personagem):
         return redirect(url_for('plataforma.personagemAparencia'))
     else:
         if personagens.personagemCriado(id_personagem):
-            return render_template('chat.html', id_personagem=id_personagem)
+            return redirect(url_for('plataforma.chat', id_personagem=id_personagem) )
         else:
             return render_template('criacao.html', id_personagem=id_personagem)
 

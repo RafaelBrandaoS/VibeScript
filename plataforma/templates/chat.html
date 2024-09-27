@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='estilos/home.css') }}">
-    <link rel="stylesheet" href="{{ url_for('plataforma.static', filename='estilos/plataforma.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('plataforma.static', filename='estilos/chat.css') }}" >
     <title>VibeScript - plataforma</title>
 </head>
 <body>
@@ -17,15 +17,55 @@
             </div>
             <div class="cabecalho-btns">
                 <a class="lnk-planos" href="{{ url_for('home') }}">Home</a>
-                <a class="lnk-login" href="{{ url_for('login.logout') }}">Voltar</a>
+                <a class="lnk-login" href="{{ url_for('plataforma.plataformaHome') }}">Voltar</a>
                 <a class="lnk-regis" href="{{ url_for('plataforma.planos') }}">Atualizar Plano</a>
             </div>
         </div>
     </header>
     <main>
         <section class="chat-container">
-            <h1>{{ id_personagem }}</h1>
-        </section>
+            <div class="infos-personagem">
+                <div class="nome-img-persona">
+                    <div class="persona-imagem-container">
+                        <img src="{{ url_for('static', filename='imagens/personagens/personagem1.png') }}" alt="Neymar">
+                    </div>
+                    <h3>Neymar</h3>
+                </div>
+                <div class="histórico-roteiros">
+                    <div class="roteiro">
+                        <h3>como driblar</h3>
+                        <p class="data-hora-roteiro"><span class="data-roteiro">20/02/20024</span> <span class="hora-roteiro">10:23</span></p>
+                    </div>
+                    <div class="roteiro">
+                        <h3>melhore seeu futebol</h3>
+                        <p class="data-hora-roteiro"><span class="data-roteiro">21/02/20024</span> <span class="hora-roteiro">11:30</span></p>
+                    </div>
+                    <div class="roteiro">
+                        <h3>curiosidades sobre mim</h3>
+                        <p class="data-hora-roteiro"><span class="data-roteiro">23/02/20024</span> <span class="hora-roteiro">09:40</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-content">
+                <div class="apresentacao-chat">
+                    <!-- <h2 class="apresentacao-chat-msg">Me Fale a Sua Ideia de Vídeo</h2> -->
+                    <div class="mensagens">
+                        <div class="mensagem-usuario">
+                            <p>Crie um roteiro sobre futebol na escola.</p>
+                        </div>
+                        <div class="mensagem-resposta">
+                            <div class="mensagem-imagem">
+                                <img src="{{ url_for('static', filename='imagens/personagens/personagem1.png') }}" alt="Neymar">
+                            </div>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus cupiditate nulla repudiandae accusantium quasi? Vitae aut maiores facilis impedit alias vel et quaerat. Nam fuga labore soluta laudantium, facilis ratione!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-chat">
+                    <input class="input-ideia" type="text" name="ideia" placeholder="digite a sua ideia">
+                    <input class="input-submit" type="submit" value=">">
+                </div>
+                </section>
     </main>
 </body>
 </html>
