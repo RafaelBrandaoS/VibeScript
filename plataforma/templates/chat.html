@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='estilos/home.css') }}">
     <link rel="stylesheet" href="{{ url_for('plataforma.static', filename='estilos/chat.css') }}" >
+    <script src="{{ url_for('plataforma.static', filename='js/chat.js') }}"></script>
     <title>VibeScript - plataforma</title>
 </head>
 <body>
@@ -27,9 +28,10 @@
             <div class="infos-personagem">
                 <div class="nome-img-persona">
                     <div class="persona-imagem-container">
-                        <img src="{{ url_for('static', filename='imagens/personagens/personagem1.png') }}" alt="Neymar">
+                        <img src="{{ url_for('plataforma.static', filename=dados_personagem['imagem']) }}" alt="{{ dados_personagem['nome'] }}">
                     </div>
-                    <h3>Neymar</h3>
+                    <h3>{{dados_personagem['nome']}}</h3>
+                    <p id="id-personagem" style="display: none;">{{ id_personagem }}</p>
                 </div>
                 <div class="histórico-roteiros">
                     <div class="roteiro">
@@ -48,24 +50,26 @@
             </div>
             <div class="chat-content">
                 <div class="apresentacao-chat">
-                    <!-- <h2 class="apresentacao-chat-msg">Me Fale a Sua Ideia de Vídeo</h2> -->
-                    <div class="mensagens">
+                    <h2 class="apresentacao-chat-msg">Que Bom te ver, {{nome_usuario}}, <br> Me Conte a Sua Ideia de Vídeo.</h2>
+                    <!-- <div class="mensagens">
                         <div class="mensagem-usuario">
                             <p>Crie um roteiro sobre futebol na escola.</p>
                         </div>
                         <div class="mensagem-resposta">
                             <div class="mensagem-imagem">
-                                <img src="{{ url_for('static', filename='imagens/personagens/personagem1.png') }}" alt="Neymar">
+                                <img src="{{ url_for('plataforma.static', filename=dados_personagem['imagem']) }}" alt="Neymar">
                             </div>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus cupiditate nulla repudiandae accusantium quasi? Vitae aut maiores facilis impedit alias vel et quaerat. Nam fuga labore soluta laudantium, facilis ratione!</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
-                <div class="input-chat">
+                <form class="input-chat">
                     <input class="input-ideia" type="text" name="ideia" placeholder="digite a sua ideia">
-                    <input class="input-submit" type="submit" value=">">
-                </div>
+                    <!-- <button type="submit" value=">"> -->
+                    <button type="button" class="input-submit">></button>
+                </form>
                 </section>
     </main>
+
 </body>
 </html>

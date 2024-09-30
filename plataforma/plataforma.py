@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, request, jsonify
+from requestChatGPT.rqGPT import enviarParaGPT
 from usuario.usuario import usuario
 from usuario.personagens import personagens, Personagem
 import pprint
@@ -21,7 +22,21 @@ def planos():
 @plataforma_bp.route('/chat/<id_personagem>')
 def chat(id_personagem):
     personagens.id_personagem = id_personagem
-    return render_template('chat.html', id_personagem=id_personagem)
+    dadosPersonagem = personagens.nomeImagemPersonagem(id_personagem)
+    return render_template('chat.html', id_personagem=id_personagem, dados_personagem=dadosPersonagem, nome_usuario=usuario.username)
+
+@plataforma_bp.route('/personagem/aparencia', methods=['GET', 'POST'])
+def personagemAparencia():
+    if request.method == 'POST':
+        skin_id = request.get_json()
+        personagens.skin_id = skin_id
+        
+        personagens.atualizar_personagem()
+        
+        return jsonify({'status': 'ok', 'dados': skin_id}), 200
+    else:
+        lst_skins = personagens.skins_personagens()
+        return render_template('listaPersonagens.html', lst_skins=lst_skins)
 
 @plataforma_bp.route('/personagem/<id_personagem>', methods=['GET', 'POST'])
 def personagem(id_personagem):
@@ -51,15 +66,13 @@ def personagem(id_personagem):
         else:
             return render_template('criacao.html', id_personagem=id_personagem)
 
-@plataforma_bp.route('/personagem/aparencia', methods=['GET', 'POST'])
-def personagemAparencia():
-    if request.method == 'POST':
-        skin_id = request.get_json()
-        personagens.skin_id = skin_id
-        
-        personagens.atualizar_personagem()
-        
-        return jsonify({'status': 'ok', 'dados': skin_id}), 200
-    else:
-        lst_skins = personagens.skins_personagens()
-        return render_template('listaPersonagens.html', lst_skins=lst_skins)
+@plataforma_bp.route('/chat/resposta/<id_personagem>', methods=['POST']) 
+def respostaPersonagem(id_personagem):
+
+    dadosPersonagem = personagens.nomeImagemPersonagem(id_personagem)
+    
+    msgUsuario = request.get_json()
+
+    resposta = enviarParaGPT(dadosPersonagem, msgUsuario)
+
+    return resposta
