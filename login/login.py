@@ -12,11 +12,11 @@ def formulario():
 def loginValidar():
     email = request.form.get('email')
     senha = request.form.get('senha')
-    usuario.login(email, senha)
-    if usuario.logado:
+    status_login = usuario.login(email, senha)
+    if status_login == 'ok':
         return redirect(url_for('plataforma.plataformaHome'))
     else: 
-        flash('Erro! usuário ou senha inválida.')
+        flash(status_login)
         return(redirect(url_for('login.formulario')))
     
 

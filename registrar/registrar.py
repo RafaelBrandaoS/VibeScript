@@ -1,8 +1,13 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-# from conexao.conexao import criar_conexao, fexar_conexao
 from usuario.usuario import usuario
+from itsdangerous import URLSafeTimedSerializer
+from extencoes import chaveSecreta
 
 registrar_bp = Blueprint('registrar', __name__, template_folder='templates')
+
+
+s = URLSafeTimedSerializer(chaveSecreta)
+
 
 @registrar_bp.route('/formulario')
 def formulario():
@@ -18,9 +23,22 @@ def regis_validar():
     
     usuario.registrar(nome, email, telefone, senha, confirm_senha)
     
-    if usuario.logado:
-        return redirect(url_for('plataforma.plataformaHome'))
-    else:
-        flash('ERRO! dados inválidos.')
-        return redirect(url_for('registrar.formulario'))
+    usuario.enviarConfirmacaoEmail(email, s)
     
+    flash('Um e-mail de verificação foi enviado para o seu endereço. Verifique sua caixa de entrada.', 'info')
+    return redirect(url_for('login.formulario'))
+
+
+@registrar_bp.route('/confirm/<token>')
+def confirm_email(token):
+    try:
+        email = s.loads(token, salt='email-confirm', max_age=3600)  # Verifica o token em até 1 hora
+    except:
+        flash('O link de confirmação é inválido ou expirou.', 'danger')
+        return redirect(url_for('login.login'))
+    
+    # Aqui você atualizaria o status do usuário para "verificado"
+    usuario.atualizaStatus()
+    
+    flash('E-mail verificado com sucesso!', 'success')
+    return redirect(url_for('login.formulario'))

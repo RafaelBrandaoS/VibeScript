@@ -53,12 +53,12 @@ function carregarMensagem(estaVazio) {
                     console.log(result)
                     let respUsuario = document.createElement('div')
                     respUsuario.innerHTML = `
-                    <div class="mensagem-resposta">
+                    <div class="mensagem-imagem">
                         <img src="" alt="Neymar">
                     </div>
-                    <p>${result}</p>
+                    <article>${result}</article>
                     `
-                    respUsuario.classList.add('mensagem-usuario')
+                    respUsuario.classList.add('mensagem-resposta')
                     container.appendChild(respUsuario)
                 })
 
