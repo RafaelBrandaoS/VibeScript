@@ -30,6 +30,4 @@ def enviarParaGPT(caracteristicas, msgUsuario):
     
     resposta = resposta.replace('\n', '<br><br>')
 
-    print(resposta)
-
     return resposta
