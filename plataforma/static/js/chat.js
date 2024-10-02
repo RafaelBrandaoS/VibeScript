@@ -14,7 +14,7 @@ function eventos() {
     carregarMensagem()
 }
 
-function carregarMensagem(estaVazio) {
+function carregarMensagem() {
     let btn_submit = document.getElementsByClassName('input-submit')[0]
     console.log(btn_submit)
     btn_submit.addEventListener('click', () => {
