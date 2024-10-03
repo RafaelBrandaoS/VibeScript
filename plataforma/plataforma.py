@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request, jsonify
+from flask import Blueprint, render_template, redirect, url_for, request, jsonify, flash
 from requestChatGPT.rqGPT import enviarParaGPT
 from usuario.usuario import usuario
 from usuario.personagens import personagens, Personagem
@@ -61,10 +61,14 @@ def personagem(id_personagem):
         
         return redirect(url_for('plataforma.personagemAparencia'))
     else:
-        if personagens.personagemCriado(id_personagem):
-            return redirect(url_for('plataforma.chat', id_personagem=id_personagem) )
-        else:
+        st_personagem = personagens.statusPersonagem(id_personagem)
+        if st_personagem == 'Criar':
             return render_template('criacao.html', id_personagem=id_personagem)
+        elif st_personagem == 'Bloqueado':
+            flash('Atualize seu plano para ter acesso a mais personagens!')
+            return redirect(url_for('plataforma.plataformaHome'))
+        else:
+            return redirect(url_for('plataforma.chat', id_personagem=id_personagem) )
 
 @plataforma_bp.route('/chat/resposta/<id_personagem>', methods=['POST']) 
 def respostaPersonagem(id_personagem):

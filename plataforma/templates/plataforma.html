@@ -24,6 +24,11 @@
     </header>
     <main>
         <section class="plataforma-container">
+            <div class="explicacao">
+                <h2>Olá {{ nome }}, pronto para gerar seus roteiros com o VibeScript?</h2>
+                <p>compre personagens pré definidos ou personagens em branco para personalizar da maneira que preferir.</p>
+                <a class="lnk-regis1" href="#">ACESSAR LOJA</a>
+            </div>
             <div class="personagens">
                 <h2 class="dica">Selecione ou crie seu personagem</h2>
                 <p style="display: none;">{{ personagens[0] }}</p>
@@ -36,12 +41,20 @@
                 </div>
                 {% endfor %}
             </div>
-            <div class="explicacao">
-                <h2>Olá {{ nome }}, pronto para gerar seus roteiros com o VibeScript?</h2>
-                <p>compre personagens pré definidos ou personagens em branco para personalizar da maneira que preferir.</p>
-                <a class="lnk-regis1" href="#">ACESSAR LOJA</a>
-            </div>
         </section>
+        {% set mensagem = get_flashed_messages() %}
+        {% if mensagem %}
+        <div class="aviso-container">
+            <div class="aviso">
+                <h3>Veja os Planos</h3>
+                <p class="aviso-msg">{{ mensagem[0] }}</p>
+                <div class="aviso-btns">
+                    <button class="lnk-login aviso-cancelar" onclick="fexarAlerta()" class="aviso-fexar">cancelar</button>
+                    <a class="lnk-regis" href="{{ url_for('plataforma.planos') }}">VER PLANOS</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
     </main>
     <footer>
         <div class="footer-container">

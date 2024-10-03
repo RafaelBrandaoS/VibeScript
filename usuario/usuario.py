@@ -3,7 +3,9 @@ from conexao.conexao import criar_conexao, fexar_conexao
 from flask import url_for
 from flask_mail import Message
 from extencoes import mail
+from datetime import date
 
+dia_atual = date.today()
 
 class Usuario:
     logado = False
@@ -12,47 +14,39 @@ class Usuario:
     
     def registrar(self, nome, email, telefone, senha, confirm_senha):
         if senha == confirm_senha:
+            con = criar_conexao()
+            cursor = con.cursor()
             try:
-                con = criar_conexao()
-                cursor = con.cursor()
+                con.start_transaction()
+                
                 sql = "insert into usuarios(nome, email, telefone, senha) values (%s, %s, %s, %s);"
                 values = (nome, email, telefone, senha)
                 cursor.execute(sql, values)
-                con.commit()
-                cursor.close()
-                fexar_conexao(con)
                 
-                con1 = criar_conexao()
-                cursor1 = con1.cursor()
-                sql1 = f"select id from usuarios where email = '{email}';"
-                cursor1.execute(sql1)
-                self.id_usuario = cursor1.fetchall()[0][0]
-                cursor1.close()
-                fexar_conexao(con1)
+                self.id_usuario = cursor.lastrowid
+                self.username = nome
                 
                 print(self.id_usuario)
                 
-                con2 = criar_conexao()
-                cursor2 = con2.cursor()
-                sql2 = f"insert into relacaoUsuarioPersonagem (id_usuario, id_personagem, nome_personagem, caracteristicas_personagem) values ('{self.id_usuario}', '10', 'Criar', ''),  ('{self.id_usuario}', '10', 'Criar', ''),  ('{self.id_usuario}', '10', 'Criar', '');"
-                cursor2.execute(sql2)
-                con2.commit()
-                cursor2.close()
-                fexar_conexao(con2)
+                sql2 = f"insert into relacaoUsuarioPersonagem (id_usuario, id_personagem, nome_personagem, caracteristicas_personagem) values ('{self.id_usuario}', '10', 'Criar', ''),  ('{self.id_usuario}', '17', 'Bloqueado', ''),  ('{self.id_usuario}', '17', 'Bloqueado', ''), ('{self.id_usuario}', '17', 'Bloqueado', ''),  ('{self.id_usuario}', '17', 'Bloqueado', ''),  ('{self.id_usuario}', '17', 'Bloqueado', '');"
+                cursor.execute(sql2)
+
                 
-                Usuario.logado = True
+                print(dia_atual)
                 
-                self.username = nome
+                sql3 = f"insert into inscricoes (id_usuario, plano, plano_status, data_inicio) values ('{self.id_usuario}', 'basico', 'ativo', '{dia_atual}');"
+                cursor.execute(sql3)
+
+                con.commit()
                 
                 return 'ok'
             except:
-                Usuario.logado = False
-                
                 return 'erro'
+            finally:
+                cursor.close()
+                fexar_conexao(con)
             
         else:
-            Usuario.logado = False
-            
             return 'erro'
     
     def enviarConfirmacaoEmail(self, userEmail, s):

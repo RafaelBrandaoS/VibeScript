@@ -1,3 +1,71 @@
-<div>
-    <h1>PLANOS</h1>
-</div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('plataforma.static', filename='estilos/plataforma.css') }}" >
+    <title>vibescript - planos</title>
+</head>
+<body>
+    <header>
+        <div class="cabecalho-container">
+            <div class="logo-container">
+                <a href="#">
+                    <img class="logo" src="{{ url_for('static', filename='imagens/logos/logo1.png') }}" alt="Logo">
+                </a>
+            </div>
+            <div class="cabecalho-btns">
+                <a class="lnk-login" href="{{ url_for('plataforma.plataformaHome') }}">Voltar</a>
+            </div>
+        </div>
+    </header>
+    <section class="planos plataforma-planos" id="planos">
+        <div class="planos-container">
+            <div class="plano-titulo">
+                <h2>Planos</h2>
+                <p>aproveite, promoção por tempo limitado!</p>
+            </div>
+            <div class="tipos-planos">
+                <div class="plano">
+                    <h3>Plano Básico</h3>
+                    <p><span class="por">de</span> <span class="preco-antigo">R$2,99/mês</span> <br> <span class="por">por</span> <span class="preco-novo">R$00,00/mês.</span></p>
+                    <ul class="plano-beneficio">
+                        <li><span class="b-disponivel">✓</span> apenas um personagem</li>
+                        <li><span class="b-disponivel">✓</span> apenas cinco roteiros por mês</li>
+                        <li><span class="b-indisponivel">x</span> personagens editáveis</li>
+                        <li><span class="b-indisponivel">x</span> escolher para qual plataforma o conteúdo será gerado</li>
+                        <li><span class="b-indisponivel">x</span> acesso grátis aos personagens pré definidos da loja</li>
+
+                    </ul>
+                    <a class="ass-plano" href="#">Assinar plano básico</a>
+                </div>
+                <div class="plano">
+                    <h3>Plano padrão</h3>
+                    <p><span class="por">de</span> <span class="preco-antigo">R$8,99/mês</span> <br> <span class="por">por</span> <span class="preco-novo">R$6,99/mês.</span></p>
+                    <ul class="plano-beneficio">
+                        <li><span class="b-disponivel">✓</span> até três personagens</li>
+                        <li><span class="b-disponivel">✓</span> roteiros infinitos</li>
+                        <li><span class="b-indisponivel">x</span> personagens editáveis</li>
+                        <li><span class="b-indisponivel">x</span> escolher para qual plataforma o conteúdo será gerado</li>
+                        <li><span class="b-indisponivel">x</span> acesso grátis aos personagens pré definidos da loja</li>
+                    </ul>
+                    <a class="ass-plano" href="#">Assinar plano padrão</a>
+                </div>
+                <div class="plano">
+                    <h3>Plano profissional</h3>
+                    <p><span class="por">de</span> <span class="preco-antigo">R$14,99/mês</span> <br> <span class="por">por</span> <span class="preco-novo">R$9,99/mês.</span></p>
+                    <ul class="plano-beneficio">
+                        <li><span class="b-disponivel">✓</span> até seis personagens</li>
+                        <li><span class="b-disponivel">✓</span> roteiros infinitos</li>
+                        <li><span class="b-disponivel">✓</span> personagens editáveis</li>
+                        <li><span class="b-disponivel">✓</span> escolher para qual plataforma o conteúdo será gerado</li>
+                        <li><span class="b-disponivel">✓</span> acesso grátis aos personagens pré definidos da loja</li>
+                    </ul>
+                    <a class="ass-plano" href="#">Assinar plano profissional</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

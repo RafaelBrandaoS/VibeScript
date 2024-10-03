@@ -15,3 +15,7 @@ function escolha_personagem(id_personagem) {
     window.location.href = `/plataforma/personagem/${id_personagem}`
 }
 
+function fexarAlerta() {
+    document.getElementsByClassName('aviso-container')[0].remove()
+}
+

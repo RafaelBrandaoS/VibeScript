@@ -26,17 +26,66 @@
     height: 150px;
 }
 
+.personagem:hover {
+    transform: scale(1.05);
+}
+
 .dica {
     width: 100%;
     margin-bottom: 10px;
 }
 
 .explicacao {
-    padding-left: 40px;
+    padding: 0px 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    gap: 20px;
+    justify-content: flex-start;
+    gap: 50px;
     align-items: center;
+}
+
+.aviso-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100dvw;
+    height: 100dvh;
+    background-color: #00000042;
+}
+
+.aviso {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 350px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    background-color: #F8F9FA;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px #00000062;
+}
+
+.aviso-btns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.aviso-cancelar {
+    background-color: transparent;
+    border: none;
+    font-size: 1.1em;
+}
+
+.plataforma-planos {
+    margin-top: 70px;
+    box-shadow: none;
 }

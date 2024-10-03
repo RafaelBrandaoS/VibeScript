@@ -21,12 +21,17 @@ def regis_validar():
     senha = request.form.get('senha')
     confirm_senha = request.form.get('confirm-senha')
     
-    usuario.registrar(nome, email, telefone, senha, confirm_senha)
+    cadastrar = usuario.registrar(nome, email, telefone, senha, confirm_senha)
     
-    usuario.enviarConfirmacaoEmail(email, s)
+    print(cadastrar)
     
-    flash('Um e-mail de verificação foi enviado para o seu endereço. Verifique sua caixa de entrada.', 'info')
-    return redirect(url_for('login.formulario'))
+    if cadastrar == 'ok':
+        usuario.enviarConfirmacaoEmail(email, s)
+        flash('Um e-mail de verificação foi enviado para o seu endereço. Verifique sua caixa de entrada.', 'info')
+        return redirect(url_for('login.formulario'))
+    else:
+        flash('Algo deu errado.', 'alert')
+        return redirect(url_for('registrar.formulario'))
 
 
 @registrar_bp.route('/confirm/<token>')

@@ -76,7 +76,7 @@ class Personagem:
         print(self.id_personagem)
         print('\n\n')
     
-    def personagemCriado(self, id_personagem):
+    def statusPersonagem(self, id_personagem):
         con = criar_conexao()
         cursor = con.cursor()
         sql = f"select nome_personagem from relacaoUsuarioPersonagem where id = {id_personagem}"
@@ -87,10 +87,7 @@ class Personagem:
         
         print(nome)
         
-        if nome[0][0] != 'Criar':
-            return True
-        else:
-            return False
+        return nome[0][0]
     
     def nomeImagemPersonagem(self, id_personagem):
         con = criar_conexao()
