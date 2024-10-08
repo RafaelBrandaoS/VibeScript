@@ -1,11 +1,29 @@
+.dados-usuario {
+    margin-right: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.dados-usuario > a {
+    padding: 5px;
+}
+
+.dados-usuario > a:hover {
+    transform: scale(1);
+}
+
 .plataforma-container {
     padding: 100px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap-reverse;
+    gap: 30px;
 }
 
 .personagens {
-    max-width: 45dvw;
+    max-width: 469px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -36,7 +54,8 @@
 }
 
 .explicacao {
-    padding: 0px 20px;
+    max-width: 449px;
+    width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;

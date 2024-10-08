@@ -17,11 +17,10 @@ def formulario():
 def regis_validar():
     nome = request.form.get('nome')
     email = request.form.get('email')
-    telefone = request.form.get('telefone')
     senha = request.form.get('senha')
     confirm_senha = request.form.get('confirm-senha')
     
-    cadastrar = usuario.registrar(nome, email, telefone, senha, confirm_senha)
+    cadastrar = usuario.registrar(nome, email, senha, confirm_senha)
     
     print(cadastrar)
     
@@ -30,7 +29,7 @@ def regis_validar():
         flash('Um e-mail de verificação foi enviado para o seu endereço. Verifique sua caixa de entrada.', 'info')
         return redirect(url_for('login.formulario'))
     else:
-        flash('Algo deu errado.', 'alert')
+        flash('Algo deu errado, tente novamente.', 'alert')
         return redirect(url_for('registrar.formulario'))
 
 

@@ -23,7 +23,7 @@ main {
 
 .form-container {
     background-color: var(--verdeMenta);
-    width: 650px;
+    width: 660px;
     max-width: 90dvw;
     max-height: 90dvh;
     margin: 0 auto;
@@ -33,7 +33,8 @@ main {
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 5px #00000038;
     border-radius: 5px;
-    /* overflow-y: scroll; */
+    overflow-y: auto;
+    scrollbar-width: thin;
 }
 
 .fexar {
@@ -59,13 +60,17 @@ main {
     flex-wrap: wrap;
 }
 
+
 .img-container {
-    padding: 20px;
-    max-width: 280px;
+    padding: 10px;
     margin: 0 auto;
+    max-width: 266px;
+
 }
 
 .img-container > img {
+    width: 100%;
+    max-width: 266px;
     filter: drop-shadow(0px 0px 3px #00000028);
 }
 
@@ -80,7 +85,8 @@ main {
     border-radius: 5px;
     box-shadow: -1px 0px 3px #00000028;
     width: 100%;
-    max-width: 370px;
+    max-width: 375px;
+    margin: 0 auto;
 }
 
 .form > h3, .img-container > h3 {
@@ -101,6 +107,11 @@ main {
     color: var(--azulEscuro);
 }
 
+.lb-senha {
+    font-size: 1em;
+    color: var(--azulEscuro);
+}
+
 .form > form > input {
     font-size: 1.2em;
     margin-bottom: 10px;
@@ -108,6 +119,30 @@ main {
     border-radius: 5px;
     border: none;
     box-shadow: 0px 0px 2px #00000098;
+}
+
+.form > form > div {
+    position: relative;
+    width: 100%;
+}
+
+.form i {
+    position: absolute;
+    right: 2%;
+    top: 40%;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--cinzaMédio);
+}
+
+.inp-senha {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 2px #00000098;
+    width: 100%;
 }
 
 .btn-submit {

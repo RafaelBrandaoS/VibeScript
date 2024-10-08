@@ -12,15 +12,15 @@ class Usuario:
     username = ''
     id_usuario = ''
     
-    def registrar(self, nome, email, telefone, senha, confirm_senha):
+    def registrar(self, nome, email, senha, confirm_senha):
         if senha == confirm_senha:
             con = criar_conexao()
             cursor = con.cursor()
             try:
                 con.start_transaction()
                 
-                sql = "insert into usuarios(nome, email, telefone, senha) values (%s, %s, %s, %s);"
-                values = (nome, email, telefone, senha)
+                sql = "insert into usuarios(nome, email, senha) values (%s, %s, %s);"
+                values = (nome, email, senha)
                 cursor.execute(sql, values)
                 
                 self.id_usuario = cursor.lastrowid

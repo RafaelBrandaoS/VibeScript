@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="64x64"  href="{{ url_for('static', filename='imagens/logos/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='estilos/regisLog.css') }}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
     <title>VibeScript - registrar</title>
 </head>
 <body>
@@ -18,12 +23,16 @@
                         <input type="text" name="nome" placeholder="seu nome">
                         <label for="email">e-mail</label>
                         <input type="email" name="email" placeholder="seu e-mail">
-                        <label for="telefone">telefone</label>
-                        <input type="number" name="telefone" placeholder="seu telefone">
-                        <label for="senha">senha</label>
-                        <input type="password" name="senha" placeholder="sua senha">
-                        <label for="confirm-senha">confirmar senha</label>
-                        <input type="password" name="confirm-senha" placeholder="confirme sua senha">
+                        <div>
+                            <label class="lb-senha" for="senha">senha</label>
+                            <input class="inp-senha" type="password" name="senha" placeholder="sua senha">
+                            <i class="bi bi-eye-fill verSenha"></i>
+                        </div>
+                        <div>
+                            <label class="lb-senha" for="confirm-senha">senha</label>
+                            <input class="inp-senha" type="password" name="confirm-senha" placeholder="confirme sua senha">
+                            <i class="bi bi-eye-fill verSenha"></i>
+                        </div>
                         {% set mensagem = get_flashed_messages() %}
                         {% if mensagem %}
                             <p class="erro">{{ mensagem[0] }}</p>
@@ -39,5 +48,7 @@
             </div>
         </div>
     </main>
+
+    <script src="{{ url_for('static', filename='js/regisLog.js') }}"></script>
 </body>
 </html>

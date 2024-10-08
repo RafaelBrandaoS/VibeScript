@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="64x64"  href="{{ url_for('static', filename='imagens/logos/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='estilos/home.css') }}">
     <link rel="stylesheet" href="{{ url_for('plataforma.static', filename='estilos/plataforma.css') }}" >
     <title>VibeScript - plataforma</title>
@@ -19,6 +20,10 @@
                 <a class="lnk-planos" href="{{ url_for('home') }}">Home</a>
                 <a class="lnk-login" href="{{ url_for('login.logout') }}">Sair</a>
                 <a class="lnk-regis" href="{{ url_for('plataforma.planos') }}">Atualizar Plano</a>
+            </div>
+            <div class="dados-usuario">
+                <a href="#" class="lnk-planos">{{ nome }}</a>
+                <a href="#" class="lnk-planos">⚙️</a>
             </div>
         </div>
     </header>
@@ -63,13 +68,13 @@
             </div>
             <div class="footer-content">
                 <h4>Contato:</h4>
-                <p>vibescript@gmail.com</p>
+                <p>vibescript.com@gmail.com</p>
                 <p>(61) 9 91234-5678</p>
             </div>
             <div class="lnk-uteis">
-                <a href="#">Atualizar Plano</a>
-                <a href="#">Home</a>
-                <a href="#">Sair</a>
+                <a href="{{ url_for('plataforma.planos') }}">Atualizar Plano</a>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('login.logout') }}">Sair</a>
             </div>
         </div>
         <p class="creditos">desenvolvido por <a href="#">Rafael Brandão</a></p>
