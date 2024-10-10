@@ -39,7 +39,11 @@
                         <li><span class="b-indisponivel">x</span> acesso grátis aos personagens pré definidos da loja</li>
 
                     </ul>
-                    <a class="ass-plano" href="#">Assinar plano básico</a>
+                    {% if infos_plano[0][2] == 'basico' %}
+                        <a class="ass-plano" href="#">Plano atual</a>
+                    {% else %}
+                        <a class="ass-plano" href="#">Voltar ao plano básico</a>
+                    {% endif %}
                 </div>
                 <div class="plano">
                     <h3>Plano padrão</h3>
@@ -51,7 +55,11 @@
                         <li><span class="b-indisponivel">x</span> escolher para qual plataforma o conteúdo será gerado</li>
                         <li><span class="b-indisponivel">x</span> acesso grátis aos personagens pré definidos da loja</li>
                     </ul>
-                    <a class="ass-plano" href="#">Assinar plano padrão</a>
+                    {% if infos_plano[0][2] == 'padrao' %}
+                        <a class="ass-plano" href="#">Plano atual</a>
+                    {% else %}
+                        <a class="ass-plano" href="#">Assinar plano padrão</a>
+                    {% endif %}
                 </div>
                 <div class="plano">
                     <h3>Plano profissional</h3>
@@ -63,7 +71,11 @@
                         <li><span class="b-disponivel">✓</span> escolher para qual plataforma o conteúdo será gerado</li>
                         <li><span class="b-disponivel">✓</span> acesso grátis aos personagens pré definidos da loja</li>
                     </ul>
-                    <a class="ass-plano" href="#">Assinar plano profissional</a>
+                    {% if infos_plano[0][2] == 'profissional' %}
+                        <a class="ass-plano" href="#">Plano atual</a>
+                    {% else %}
+                        <a class="ass-plano" href="#">Assinar plano profissional</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

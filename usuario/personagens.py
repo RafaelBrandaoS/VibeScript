@@ -92,21 +92,25 @@ class Personagem:
     def nomeImagemPersonagem(self, id_personagem):
         con = criar_conexao()
         cursor = con.cursor()
-        sql = f"select nome_personagem, id_personagem, caracteristicas_personagem from relacaoUsuarioPersonagem where id = {id_personagem}"
+        sql = f"select * from relacaoUsuarioPersonagem where id = {id_personagem}"
         cursor.execute(sql)
-        nomeId = cursor.fetchall()
+        dadosPersonagem = cursor.fetchall()
         cursor.close()
         fexar_conexao(con)
         
         con1 = criar_conexao()
         cursor1 = con1.cursor()
-        sql1 = f"select aparencia from personagens where id = {nomeId[0][1]}"
+        sql1 = f"select aparencia from personagens where id = {dadosPersonagem[0][2]}"
         cursor1.execute(sql1)
         caminhoImg = cursor1.fetchall()
         cursor1.close()
         fexar_conexao(con)
         
-        dados = {'nome': nomeId[0][0], 'imagem': caminhoImg[0][0], 'caracteristicas': nomeId[0][2]}
+        print(dadosPersonagem)
+        
+        dados = {'id': dadosPersonagem[0][0], 'id_usuario': dadosPersonagem[0][1], 'id_skin': dadosPersonagem[0][2], 'nome': dadosPersonagem[0][3], 'imagem': caminhoImg[0][0], 'caracteristicas': dadosPersonagem[0][4]}
+        
+        print(dados)
         
         return dados
     

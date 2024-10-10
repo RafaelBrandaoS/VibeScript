@@ -100,10 +100,25 @@ class Usuario:
         except:
             Usuario.logado = False
             return 'ERRO! não foi possível fazer login.'
-
     
     def logout(self):
         Usuario.logado = False
         self.username = ''
+        self.id_usuario = ''
+    
+    def planoUsuario(self):
+        con = criar_conexao()
+        cursor = con.cursor()
+        sql = f"select * from inscricoes where id_usuario = '{self.id_usuario}';"
+        cursor.execute(sql)
+        dados = cursor.fetchall()
+        cursor.close()
+        fexar_conexao(con)
+        
+        print(dados)
+        
+        
+        return dados
+    
 
 usuario = Usuario()
