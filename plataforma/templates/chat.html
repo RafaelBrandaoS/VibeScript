@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" type="image/png" sizes="64x64"  href="{{ url_for('static', filename='imagens/logos/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='estilos/home.css') }}">
     <link rel="stylesheet" href="{{ url_for('plataforma.static', filename='estilos/chat.css') }}" >
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
     <script src="{{ url_for('plataforma.static', filename='js/chat.js') }}"></script>
+
     <title>VibeScript - plataforma</title>
 </head>
 <body>
@@ -28,10 +33,13 @@
         <section class="chat-container">
             <div class="infos-personagem">
                 <div class="nome-img-persona">
-                    <div class="persona-imagem-container">
-                        <img src="{{ url_for('plataforma.static', filename=dados_personagem['imagem']) }}" alt="{{ dados_personagem['nome'] }}">
+                    <div>
+                        <div class="persona-imagem-container">
+                            <img src="{{ url_for('plataforma.static', filename=dados_personagem['imagem']) }}" alt="{{ dados_personagem['nome'] }}">
+                        </div>
+                        <h3>{{dados_personagem['nome']}}</h3>
                     </div>
-                    <h3>{{dados_personagem['nome']}}</h3>
+                    <button id="btn-menu-lateral"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                     <p id="id-personagem" style="display: none;">{{ id_personagem }}</p>
                 </div>
                 <div class="histórico-roteiros">
@@ -39,14 +47,6 @@
                         <h3>histórico de chats</h3>
                         <p class="data-hora-roteiro"><span class="data-roteiro">20/02/20024</span> <span class="hora-roteiro">10:23</span></p>
                     </div>
-                    <!-- <div class="roteiro">
-                        <h3>melhore seeu futebol</h3>
-                        <p class="data-hora-roteiro"><span class="data-roteiro">21/02/20024</span> <span class="hora-roteiro">11:30</span></p>
-                    </div>
-                    <div class="roteiro">
-                        <h3>curiosidades sobre mim</h3>
-                        <p class="data-hora-roteiro"><span class="data-roteiro">23/02/20024</span> <span class="hora-roteiro">09:40</span></p>
-                    </div> -->
                 </div>
             </div>
             <div class="chat-content">
@@ -56,9 +56,9 @@
                 <div class="input-chat">
                     <input class="input-ideia" type="text" name="ideia" placeholder="digite a sua ideia">
                     <!-- <button type="submit" value=">"> -->
-                    <button type="button" class="input-submit">></button>
+                    <button class="input-submit"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
                 </div>
-                </section>
+        </section>
     </main>
 
 </body>

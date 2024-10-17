@@ -1,6 +1,23 @@
 document.addEventListener('DOMContentLoaded', eventos)
 
 function eventos() {
+    const btn_menu_lateral = document.getElementById('btn-menu-lateral')
+    const menu_lateral = document.getElementsByClassName('infos-personagem')[0]
+    const seta = document.querySelector('#btn-menu-lateral > span')
+    btn_menu_lateral.addEventListener('click', () => {
+        if(menu_lateral.classList.contains('infos-personagem-mostrar')) {
+            menu_lateral.classList.remove('infos-personagem-mostrar')
+            seta.innerText = 'arrow_forward_ios'
+            document.getElementsByClassName('nome-img-persona')[0].style = 'box-shadow: none;'
+            document.getElementsByClassName('data-hora-roteiro')[0].style = 'color: transparent;'
+        } else {
+            menu_lateral.classList.add('infos-personagem-mostrar')
+            seta.innerText = 'arrow_back_ios'
+            document.getElementsByClassName('nome-img-persona')[0].style = 'box-shadow: -2px 2px 3px #5b5b5b86;'
+            document.getElementsByClassName('data-hora-roteiro')[0].style = 'color: black;'
+        }
+    })
+
     let input_ideia = document.getElementsByClassName('input-ideia')[0]
     let input_submit = document.getElementsByClassName('input-submit')[0]
     input_ideia.addEventListener("input", (event) => {
