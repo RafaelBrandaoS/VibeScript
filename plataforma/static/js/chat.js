@@ -22,6 +22,10 @@ function eventos() {
     let input_submit = document.getElementsByClassName('input-submit')[0]
     input_ideia.addEventListener("input", (event) => {
         texto = event.target
+        menu_lateral.classList.remove('infos-personagem-mostrar')
+        seta.innerText = 'arrow_forward_ios'
+        document.getElementsByClassName('nome-img-persona')[0].style = 'box-shadow: none;'
+        document.getElementsByClassName('data-hora-roteiro')[0].style = 'color: transparent;'
         if(texto.value.trim() == '') {
             input_submit.style = 'background-color: #F8F9FA;'
         } else {
@@ -34,13 +38,13 @@ function eventos() {
 function carregarMensagem() {
     let btn_submit = document.getElementsByClassName('input-submit')[0]
     console.log(btn_submit)
-    btn_submit.addEventListener('click', () => {
-        let container = document.getElementsByClassName('apresentacao-chat')[0]
-        let msgInicial = document.getElementsByClassName('apresentacao-chat-msg')[0]
-        let input_ideia = document.getElementsByClassName('input-ideia')[0]
-        let id_personagem = document.getElementById('id-personagem').innerText
-        let img_personagem = document.querySelector('.persona-imagem-container > img').src
-        
+    let container = document.getElementsByClassName('apresentacao-chat')[0]
+    let msgInicial = document.getElementsByClassName('apresentacao-chat-msg')[0]
+    let input_ideia = document.getElementsByClassName('input-ideia')[0]
+    let id_personagem = document.getElementById('id-personagem').innerText
+    let img_personagem = document.querySelector('.persona-imagem-container > img').src
+
+    function req_resposta() {
         if (input_ideia.value != '') {
             msgInicial.style = 'display: none;'
             
@@ -88,6 +92,12 @@ function carregarMensagem() {
             input_ideia.value = ''
             btn_submit.style = 'background-color: #F8F9FA;'
             container.scrollTop = container.scrollHeight
+    }}
+
+    btn_submit.addEventListener('click', req_resposta)
+    input_ideia.addEventListener('keydown', (event) => {
+        if(event.key === 'Enter') {
+            req_resposta()
         }
     })
 }
