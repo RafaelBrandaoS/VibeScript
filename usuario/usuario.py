@@ -120,5 +120,10 @@ class Usuario:
         
         return dados
     
+    def atualizarCustomerId(customer_email, customer_id):
+        
+        
+        return 'ok'
+    
 
 usuario = Usuario()
