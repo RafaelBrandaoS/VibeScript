@@ -6,13 +6,17 @@ from extencoes import criar_app
 import stripe
 from assinaturas.assinatura import assinatura
 from usuario.usuario import usuario
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+STRIPE_API = os.getenv('STRIPE_API')
+ENDPOINT_SECRET = os.getenv('ENDPOINT_SECRET')
 
 app = criar_app()
 
-stripe.api_key = 'sk_test_51Q83DFB34eoeAWLm0ecXDbomjwhEALJ5FbO8PIXuqjFre8kT0Q2KseMXFZMigilO1NKq0kj3Czv61SoExUww9TMC00Ns8CGOoP'
-
-endpoint_secret = 'whsec_f4924d97d5cc6ae1ceb96cd7ce376900979c058582f36f77dc9b4f53e58a2950'
+stripe.api_key = STRIPE_API
+endpoint_secret = ENDPOINT_SECRET
 
 app.register_blueprint(login_bp, url_prefix='/login')
 app.register_blueprint(registrar_bp, url_prefix='/registrar')
